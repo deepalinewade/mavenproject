@@ -8,7 +8,7 @@ stage('scm checkout')
  
 stage('validate the job')
 {steps { withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true) {
-    sh 'mvn validate' } }}
+    sh 'mvn validate'} }}
 
 }
 }
