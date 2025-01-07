@@ -28,8 +28,8 @@ stage('generate artifact and store in local maven repository')
   //} }}
 
 
-stage('deploy to tomcat qa')
-{steps {   sh 'echo "deploy to tomcat qa" ' }}
+//stage('deploy to tomcat qa')
+//{steps {   sh 'echo "deploy to tomcat qa" ' }}
     
    
 
