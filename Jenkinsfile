@@ -22,9 +22,9 @@ stage('generate artifact and store in local maven repository')
 
 
 stage('deploy to tomcat dev')
-{steps { sshagent (credentials: ['CICD-deploy']) 
+{steps { sshagent (['DEVCICD']) 
   {
-    sh 'scp -o StrictHostKeyChecking=no webapp/target/webapps.war ec2-user@172.31.10.155:/usr/share/tomcat/webapps'
+    sh 'scp -o StrictHostKeyChecking=no webapp/target/webapps.war ec2-user@172.31.10.155:/usr/share/webapps'
   } }}
 
 
