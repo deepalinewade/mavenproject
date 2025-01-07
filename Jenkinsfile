@@ -5,7 +5,7 @@ stages
 {
 
 stage ('scm checkout')
-{steps {  git branch: 'master', url: 'https://github.com/prakashk0301/mavenproject'   }}
+{steps {  git branch: 'master', url: 'https://github.com/deepalinewade/mavenproject.git'   }}
 
 
 stage('execute unit test framework')
@@ -21,11 +21,11 @@ stage('generate artifact and store in local maven repository')
 }} }
 
 
-stage('deploy to tomcat dev')
-{steps { sshagent (credentials: ['CICD-deploy']) 
-  {
-    sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.27.88:/usr/share/tomcat/webapps'
-  } }}
+//stage('deploy to tomcat dev')
+//{steps { sshagent (credentials: ['CICD-deploy']) 
+  //{
+    //sh 'scp -o StrictHostKeyChecking=no webapp/target/webapp.war ec2-user@172.31.27.88:/usr/share/tomcat/webapps'
+  //} }}
 
 
 stage('deploy to tomcat qa')
