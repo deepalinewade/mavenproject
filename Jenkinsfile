@@ -20,7 +20,6 @@ stage('generate artifact and store in local maven repository')
     sh 'mvn clean install -DskipTests'    //skip test, it also generates artifact, clean the workspace folder
 }} }
 
-
 stage('deploy to tomcat dev')
 {steps { sshagent (['DEVCICD']) 
   {
