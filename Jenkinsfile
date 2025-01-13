@@ -1,5 +1,5 @@
 pipeline {
-    agent none  // No default agent for the entire pipeline
+    agent any  // No default agent for the entire pipeline
 
     stages {
         stage('scm checkout') {
