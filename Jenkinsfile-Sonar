@@ -17,7 +17,7 @@ stage('execute unit test framework')
 
 stage('code build') 
 { steps {withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true)
-  { withSonarQubeEnv(credentialsId: 'sonar' installationName: 'sonar') 
+  { withSonarQubeEnv(credentialsId: 'sonar', installationName: 'sonar') 
     {
     sh 'mvn clean -B -Dskiptests sonar:sonar package' }
 } }}
