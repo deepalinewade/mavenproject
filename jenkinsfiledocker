@@ -2,15 +2,13 @@ pipeline {
     agent any  // No default agent for the entire pipeline
 
     stages {
-        stage('scm checkout') {
-            agent { label 'JAVA' }  // Using an agent with the label 'JAVA'
+        stage('scm checkout') {  
             steps {
                 git branch: 'master', url: 'https://github.com/deepalinewade/mavenproject.git'
             }
         }
 
         stage('code compile') {
-            agent { label 'JAVA' }  // Using an agent with the label 'JAVA'
             steps {
                 withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true) {
                     sh 'mvn compile'
@@ -19,7 +17,6 @@ pipeline {
         }
 
         stage('execute unit test framework') {
-            agent { label 'JAVA' }  // Using an agent with the label 'JAVA'
             steps {
                 withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true) {
                     sh 'mvn test'
