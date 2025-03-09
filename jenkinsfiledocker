@@ -24,14 +24,13 @@ pipeline {
             }
         }
 
-        // stage('code build') {
-        //   agent { label 'JAVA' }  // Using an agent with the label 'JAVA'
-        //     steps {
-        //          withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true) {
-        //             sh 'mvn package'
-        //         }
-        //     }
-        // }
+        stage('code build') {
+            steps {
+                 withMaven(globalMavenSettingsConfig: '', jdk: 'JDK_HOME', maven: 'MVN_HOME', mavenSettingsConfig: '', traceability: true) {
+                    sh 'mvn package'
+                }
+            }
+        }
 
         // stage('deploy to tomcat dev') {
         //     agent { label 'JAVA' }  // Adding an agent for this stage as well
